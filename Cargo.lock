@@ -343,9 +343,8 @@ dependencies = [
 
 [[package]]
 name = "libc"
-version = "0.2.155"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "97b3888a4aecf77e811145cadf6eef5901f4782c53886191b2f693f24761847c"
+version = "0.2.173"
+source = "git+https://github.com/nanvix/libc?branch=nanvix/v0.2.173-dev#089188fce3e89bc1f9c55cba9ac89849915df141"
 
 [[package]]
 name = "litemap"
@@ -776,6 +775,9 @@ name = "uuid"
 version = "1.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f8c5f0a0af699448548ad1a2fbf920fb4bee257eae39953ba95cb84891a0446a"
+dependencies = [
+ "getrandom",
+]
 
 [[package]]
 name = "version_check"

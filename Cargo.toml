@@ -39,15 +39,15 @@ serde = { version = "1.0.214", features = ["derive"] }
 speedate = "0.15.0"
 smallvec = "1.13.2"
 ahash = "0.8.10"
-url = "2.5.0"
+url = { version = "2.5.0", default-features = false, features = [] } # nanvix: restrict this to serde feature only
 # idna is already required by url, added here to be explicit
-idna = "1.0.2"
-base64 = "0.22.1"
-num-bigint = "0.4.6"
+idna = { version = "1.0.2", default-features = false, features = ["compiled_data", "alloc"] } # nanvix: restrict this to serde feature only
+base64 = { version = "0.22.1", default-features = false, features = ["alloc"] } # nanvix: restrict this to serde feature only
+num-bigint = { version = "0.4.6", default-features = false, features = [] } # nanvix: restrict this to serde feature only
 python3-dll-a = "0.2.10"
-uuid = "1.11.0"
+uuid = { version = "1.11.0", default-features = false, features = ["v4"] } # nanvix: restrict this to v4 feature only
 jiter = { version = "0.7.1", features = ["python"] }
-hex = "0.4.3"
+hex = { version = "0.4.3", default-features = false, features = ["alloc"] } # nanvix: restrict this to alloc feature only
 
 [lib]
 name = "_pydantic_core"
@@ -111,3 +111,6 @@ too_many_lines = "allow"
 unnecessary_wraps = "allow"
 unused_self = "allow"
 used_underscore_binding = "allow"
+
+[patch.crates-io]
+libc = { git = "https://github.com/nanvix/libc", branch = "nanvix/v0.2.173-dev", default-features = false}

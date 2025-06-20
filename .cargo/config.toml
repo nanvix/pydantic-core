@@ -13,3 +13,13 @@ rustflags = [
   "-C", "link-arg=-undefined",
   "-C", "link-arg=dynamic_lookup",
 ]
+
+[target.i686-unknown-nanvix]
+rustflags = [
+  "-C", "relocation-model=static",
+  "-C", "prefer-dynamic=no",
+  "-C", "link-arg=-T/home/mossaka/developer/nanvix/build/user/linker/x86/user.ld"
+]
+
+[env]
+PYTHON = { value = ".venv/bin/python3", relative = true }
